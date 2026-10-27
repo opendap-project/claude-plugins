@@ -12,7 +12,7 @@ License policy:
 | Content | SPDX identifier |
 |---|---|
 | Hardware of OpenDAP products: schematics, PCB, mechanics | `CERN-OHL-S-2.0` |
-| Hardware building blocks others combine: part libraries, HAT Case Standard reference designs, `export/` | `CERN-OHL-W-2.0` |
+| Hardware building blocks others combine: part libraries, OpenDAP HAT Standard reference designs, `export/` | `CERN-OHL-W-2.0` |
 | Software | `GPL-3.0-or-later` |
 | Software libraries others build on: SDK, design system, schemas | `MPL-2.0` |
 | Firmware, project templates | `MIT` |
