@@ -1,0 +1,12 @@
+{
+  "name": "opendap",
+  "description": "Claude Code plugins for OpenDAP repositories",
+  "owner": { "name": "The OpenDAP Project" },
+  "plugins": [
+    {
+      "name": "opendap",
+      "source": "./plugins/opendap",
+      "description": "OpenDAP project conventions: requirements, ADRs and REUSE licensing"
+    }
+  ]
+}

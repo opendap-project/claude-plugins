@@ -1,0 +1,10 @@
+{
+  "name": "opendap",
+  "version": "0.7.0",
+  "description": "OpenDAP project conventions for contributors: requirements, ADRs, REUSE licensing, component exports and fab packages",
+  "author": {
+    "name": "The OpenDAP Project"
+  },
+  "homepage": "https://github.com/opendap-project",
+  "license": "GPL-3.0-or-later"
+}
