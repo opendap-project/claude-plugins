@@ -22,3 +22,12 @@ repos:
     rev: v0.4.1
     hooks:
       - id: no-stray-files
+  # The plugin's hook scripts, tested with the standard library.
+  - repo: local
+    hooks:
+      - id: plugin-script-tests
+        name: plugin script tests (unittest)
+        entry: python3 -m unittest discover -s plugins/opendap/tests
+        language: system
+        pass_filenames: false
+        files: ^plugins/opendap/(scripts|tests)/

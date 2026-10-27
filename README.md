@@ -12,7 +12,7 @@ Every OpenDAP repository enables the `opendap` plugin in its `.claude/settings.j
   - `/opendap:license-check` checks REUSE licensing.
   - `/opendap:export` generates a component's `export/` folder.
   - `/opendap:fab-package` builds a KiCad project's fab and assembly package locally.
-  - A `PreToolUse` hook blocks `git commit --no-verify` and commits in clones without `pre-commit install`.
+  - A `PreToolUse` hook blocks `git commit --no-verify` and commits in clones without `pre-commit install`; it says on stderr what to run instead. Its tests (`plugins/opendap/tests`, standard library only) run in pre-commit.
 
 Each skill applies a public specification or convention (the workspace `CONTRIBUTING.md`, the component export contract, REUSE) and points to it instead of copying it.
 

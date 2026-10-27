@@ -3,15 +3,21 @@
 
 Denies a `git commit` when it passes --no-verify / -n, or when the target
 repository has no pre-commit hook installed. Everything else passes through.
+A denial is the PreToolUse decision on stdout and, on stderr, one line saying what to run.
 """
 import json, os, re, shlex, subprocess, sys
 
 def deny(reason):
+    print(f"guard-commit: {reason}", file=sys.stderr)
     print(json.dumps({"hookSpecificOutput": {"hookEventName": "PreToolUse",
         "permissionDecision": "deny", "permissionDecisionReason": reason}}))
     sys.exit(0)
 
-data = json.load(sys.stdin)
+try:
+    data = json.load(sys.stdin)
+except ValueError:
+    print("guard-commit: the hook input is not JSON; nothing checked", file=sys.stderr)
+    sys.exit(0)
 cmd = (data.get("tool_input") or {}).get("command", "")
 cwd = data.get("cwd") or os.getcwd()
 for segment in re.split(r"&&|\|\||;|\n", cmd):
@@ -34,7 +40,7 @@ for segment in re.split(r"&&|\|\||;|\n", cmd):
         continue
     flags = words[i + 1:]
     if "--no-verify" in flags or any(re.fullmatch(r"-[a-zA-Z]*n[a-zA-Z]*", f) for f in flags):
-        deny("OpenDAP: commits must run the local checks; do not use --no-verify.")
+        deny("OpenDAP: commits must run the local checks; run the same git commit without --no-verify.")
     try:
         hook = subprocess.run(["git", "-C", repo, "rev-parse", "--git-path", "hooks/pre-commit"],
                               capture_output=True, text=True, check=True).stdout.strip()
