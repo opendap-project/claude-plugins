@@ -7,6 +7,11 @@ import sys
 import tempfile
 import unittest
 
+# Tests never inherit a hook's GIT_* variables (HL-64): under pre-commit, git exports GIT_DIR, GIT_INDEX_FILE and
+# others, and a fixture's git would act on the repository being committed.
+for _k in [k for k in os.environ if k.startswith("GIT_")]:
+    del os.environ[_k]
+
 # Under a pre-commit hook git exports GIT_DIR and others; without them every fixture repository is its own.
 ENV = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
 SCRIPT = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "guard-commit.py"
