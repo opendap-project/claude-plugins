@@ -5,11 +5,11 @@ description: Generate a component's export/ folder (the component as one unit, f
 
 # Export a component
 
-The contract is `toolkit/hardware/docs/specs/component-export.md` (`<toolkit-hardware>` is `public/toolkit/hardware` in the workspace, or `$OPENDAP_TOOLKIT_HARDWARE`). Read it first. Consumers read only `export/`; never copy sources there.
+The contract is `hardware/docs/specs/component-export.md` in the `tools` repository (`<tools-hardware>` is `public/tools/hardware` in the workspace, or `$ODAP_TOOLS_DIR/hardware`). Read it first. Consumers read only `export/`; never copy sources there.
 
 1. Generate what the component has, as one unit:
    - **Mechanics** (FreeCAD): one STEP body per component with
-     `freecadcmd <toolkit-hardware>/tools/freecad-export.py -- <part>.FCStd export/<component>.step`.
+     `freecadcmd <tools-hardware>/tools/freecad-export.py -- <part>.FCStd export/<component>.step`.
      It prints volume and center of mass; record them.
    - **Electronics** (KiCad): PCBA STEP with `kicad-cli pcb export step`, glTF with `kicad-cli pcb export glb`, and the netlist with `kicad-cli sch export netlist`.
    - **Renders** (Blender): the component's collection, to be linked by consumers.

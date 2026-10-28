@@ -5,7 +5,7 @@ description: Add or update a requirement in an OpenDAP repository (docs/requirem
 
 # Record a requirement
 
-Requirements live in `docs/requirements/` of the repository they belong to. The format and the tool are in the [requirements as data](https://github.com/opendap-project/toolkit-host/blob/main/docs/specs/requirements-data.md) spec (`odapkit req`).
+Requirements live in `docs/requirements/` of the repository they belong to. The format and the tool are in the [requirements as data](https://github.com/opendap-project/tools/blob/main/host/docs/specs/requirements-data.md) spec (`odapkit req`).
 
 - **With `requirements.toml`** (the source): edit the TOML and render the README from it; never edit `README.md` by hand.
 - **Without one:** edit the table in `docs/requirements/README.md`:
