@@ -13,7 +13,7 @@ Requirements live in `docs/requirements/` of the repository they belong to. The 
 | ID | Requirement | Priority | Status |
 |---|---|---|---|
 
-1. **Pick the repository.** A requirement goes where it is implemented: product-level requirements and interfaces between components in `t1`, the physical case in `case`, electronics in `board`, the HAT interface in `hat-standard`, and so on. If it spans repositories, record it in each one, scoped to that repository.
+1. **Pick the repository.** A requirement goes where it is implemented: product-level requirements and interfaces between components in `t1/product`, the physical case in `t1/case`, electronics in `t1/board`, a faceplate in `t1/faceplates/<name>`, the HAT interface in `hats/standard`, and so on (a repository with component folders keeps `docs/` in each folder). If it spans components, record it in each one, scoped to that component.
 2. **Only confirmed content.** Record what the maintainers stated. Do not add inferred details, numbers or wording. If something is needed but not stated, add it under `## Open questions` instead.
 3. **ID.** Use the prefix registered for that requirements folder in the workspace [`id-prefixes.tsv`](https://github.com/opendap-project/workspace/blob/main/id-prefixes.tsv) (for example `BRD`, `CASE`, `HCS`; where a prefix has several rows, only the one noted `new ids` takes new ones) and the next free number, zero-padded to three digits. Never reuse or renumber an ID; mark a dropped requirement withdrawn instead of deleting it, and one that belongs elsewhere moved (with its new ID in the note).
 4. **Wording.** One testable statement. Use "shall" for **must** and "should" for **should**.
