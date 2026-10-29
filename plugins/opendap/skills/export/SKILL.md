@@ -9,7 +9,7 @@ The contract is `hardware/docs/specs/component-export.md` in the `tools` reposit
 
 1. Generate what the component has, as one unit:
    - **Mechanics** (FreeCAD): one STEP body per component with
-     `freecadcmd <tools-hardware>/tools/freecad-export.py -- <part>.FCStd export/<component>.step`.
+     `freecadcmd <tools>/mechanical/freecad_export.py -- <part>.FCStd export/<component>.step`.
      It prints volume and center of mass; record them.
    - **Electronics** (KiCad): PCBA STEP with `kicad-cli pcb export step`, glTF with `kicad-cli pcb export glb`, and the netlist with `kicad-cli sch export netlist`.
    - **Renders** (Blender): the component's collection, to be linked by consumers.
